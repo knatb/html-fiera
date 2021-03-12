@@ -14,7 +14,7 @@ export default class App extends Component {
       cadenaSerieA:' ',
       cadenaSerieB:' ',
       cadenaSerieC:' ',
-      totalcadenaSerieC:0,
+      totalcadenaSerieC:1,
       cadenaEnDemostracion:' '
     };
   }
@@ -49,14 +49,10 @@ export default class App extends Component {
  } 
   
  onSubmitSerieC = () => {
-  /*for(let i = 1; i == this.state.valoractualC;i++){
-    this.state.totalcadenaSerieC *= i;
-    console.log(i);
-    console.log(this.state.totalcadenaSerieC);
-  }*/
-  this.state.cadenaSerieC += `${this.state.valoractualC} *  `;  //| Total: ${this.state.totalcadenaSerieC}`;
+  this.state.totalcadenaSerieC *= this.state.valoractualC; 
+  this.state.cadenaSerieC += `${this.state.valoractualC} * `;
   this.state.valoractualC += 1;
-  var cadenaEnDemostracion = this.state.cadenaSerieC;
+  var cadenaEnDemostracion = this.state.cadenaSerieC + `| Total: ${this.state.totalcadenaSerieC}`;
   this.setState({cadenaEnDemostracion});
 } 
   render(){
